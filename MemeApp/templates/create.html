@@ -1,0 +1,45 @@
+{% include 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>your memes</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body >
+    
+    {% block body %}
+    <div class="bg-amber-950	">  
+    <div class="">
+      <h3 class="text-center mt-4 text-3xl text-back  font-mono italic text-white">Create and Share Awesome Images.Make your own images<br> with our Meme Generator....</h3>
+    </div>  
+      <section class="text-gray-600 body-font ">
+      
+     
+      
+       
+      <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+        {% for meme in meme_data  %}
+         
+        <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded border-2" alt="hero" src="{{meme.url}}">
+        
+        <div class=" mb-4 ">
+          <button class="border-2   inline-flex  text-white bg-black border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded text-lg  "><a href="/editmeme?id={{meme.id}}/">Customize Meme</a></button>
+        </div>
+       
+        {% endfor %}
+       
+      </div>
+    </section>
+
+
+</div>
+
+{% endblock body %} 
+
+</body>
+</html>
